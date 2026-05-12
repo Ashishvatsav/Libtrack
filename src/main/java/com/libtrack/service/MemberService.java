@@ -1,12 +1,15 @@
 package com.libtrack.service;
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
 import com.libtrack.entity.IssueRecord;
 import com.libtrack.entity.Member;
 import com.libtrack.exception.ResourceNotFoundException;
 import com.libtrack.repository.IssueRecordRepository;
 import com.libtrack.repository.MemberRepository;
+
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
-import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class MemberService {
