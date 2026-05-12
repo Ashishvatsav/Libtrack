@@ -1,20 +1,37 @@
 package com.libtrack.entity;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
+import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
-@Data
+@Table(name = "books")
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class Book {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long bookId;
+
+    @Column(nullable = false)
     private String title;
+
+    @Column(nullable = false)
     private String author;
+
+    @Column(nullable = false)
+    @Builder.Default
     private boolean availability = true;
+
+    @OneToMany(mappedBy = "book", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore
+    @Builder.Default
+    private List<IssueRecord> issueRecords = new ArrayList<>();
 }

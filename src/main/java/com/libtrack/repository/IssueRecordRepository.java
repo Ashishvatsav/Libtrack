@@ -1,11 +1,17 @@
 package com.libtrack.repository;
-import java.util.List;
-
-import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.libtrack.entity.IssueRecord;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
 public interface IssueRecordRepository extends JpaRepository<IssueRecord, Long> {
-    List<IssueRecord> findByMemberMemberId(Long memberId);
+
     List<IssueRecord> findByMemberMemberIdAndReturnDateIsNull(Long memberId);
-    boolean existsByBookBookIdAndReturnDateIsNull(Long bookId);
+
+    List<IssueRecord> findByBookBookIdAndReturnDateIsNull(Long bookId);
+
+    long countByMemberMemberIdAndReturnDateIsNull(Long memberId);
 }
