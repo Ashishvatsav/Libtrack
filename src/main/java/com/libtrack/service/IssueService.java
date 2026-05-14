@@ -25,7 +25,7 @@ public class IssueService {
                 .orElseThrow(() -> new ResourceNotFoundException("Book not found"));
         Member member = memberRepository.findById(request.getMemberId())
                 .orElseThrow(() -> new ResourceNotFoundException("Member not found"));
-        if (!book.isAvailability()) {
+        if (!book.getAvailability()) {
             throw new RuntimeException("Book is already issued");
         }
         List<IssueRecord> activeIssues =

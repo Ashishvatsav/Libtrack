@@ -4,6 +4,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.libtrack.entity.Book;
+import com.libtrack.exception.DuplicateResourceException;
 import com.libtrack.repository.BookRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -12,6 +13,14 @@ import lombok.RequiredArgsConstructor;
 public class BookService {
     private final BookRepository bookRepository;
     public Book addBook(Book book) {
+        if (book.getAvailability() == null) {
+            book.setAvailability(true);
+        }
+        // Check for duplicate book (same title and author)
+        bookRepository.findByTitleIgnoreCaseAndAuthorIgnoreCase(book.getTitle(), book.getAuthor())
+            .ifPresent(existingBook -> {
+                throw new DuplicateResourceException("Book with title '" + book.getTitle() + "' by author '" + book.getAuthor() + "' already exists.");
+            });
         return bookRepository.save(book);
     }
     public List<Book> getAllBooks() {

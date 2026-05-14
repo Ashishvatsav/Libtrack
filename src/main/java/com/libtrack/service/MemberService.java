@@ -23,6 +23,6 @@ public class MemberService {
                 .orElseThrow(() -> new ResourceNotFoundException("Member not found"));
     }
     public List<IssueRecord> getIssuedBooks(Long memberId) {
-        return issueRecordRepository.findByMemberMemberId(memberId);
+        return issueRecordRepository.findByMemberMemberIdAndReturnDateIsNull(memberId);
     }
 }

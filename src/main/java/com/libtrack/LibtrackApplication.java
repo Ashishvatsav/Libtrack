@@ -1,4 +1,4 @@
-package com.libtrack.libtrack;
+package com.libtrack;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
