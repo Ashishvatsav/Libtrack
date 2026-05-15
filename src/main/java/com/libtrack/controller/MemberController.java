@@ -22,6 +22,10 @@ public class MemberController {
     public Member registerMember(@RequestBody Member member) {
         return memberService.registerMember(member);
     }
+    @GetMapping
+    public List<Member> getAllMembers() {
+        return memberService.getAllMembers();
+    }
     @GetMapping("/{id}")
     public Member getMember(@PathVariable Long id) {
         return memberService.getMember(id);

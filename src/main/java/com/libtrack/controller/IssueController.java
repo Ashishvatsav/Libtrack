@@ -1,4 +1,7 @@
 package com.libtrack.controller;
+import java.util.List;
+
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -16,6 +19,10 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class IssueController {
     private final IssueService issueService;
+    @GetMapping
+    public List<IssueRecord> getAllIssues() {
+        return issueService.getAllIssues();
+    }
     @PostMapping("/issue")
     public IssueRecord issueBook(@RequestBody IssueRequest request) {
         return issueService.issueBook(request);

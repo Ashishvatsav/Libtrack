@@ -30,8 +30,8 @@ public class IssueService {
         }
         List<IssueRecord> activeIssues =
                 issueRepository.findByMemberMemberIdAndReturnDateIsNull(member.getMemberId());
-        if (activeIssues.size() >= 3) {
-            throw new RuntimeException("Member can issue maximum 3 books");
+        if (activeIssues.size() >= 2) {
+            throw new RuntimeException("Member can issue maximum 2 books before returning them");
         }
         book.setAvailability(false);
         bookRepository.save(book);
@@ -49,5 +49,8 @@ public class IssueService {
         book.setAvailability(true);
         bookRepository.save(book);
         return issueRepository.save(issue);
+    }
+    public List<IssueRecord> getAllIssues() {
+        return issueRepository.findAll();
     }
 }

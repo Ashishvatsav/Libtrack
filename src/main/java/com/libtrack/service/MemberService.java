@@ -18,6 +18,9 @@ public class MemberService {
     public Member registerMember(Member member) {
         return memberRepository.save(member);
     }
+    public List<Member> getAllMembers() {
+        return memberRepository.findAll();
+    }
     public Member getMember(Long id) {
         return memberRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Member not found"));
