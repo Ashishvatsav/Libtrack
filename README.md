@@ -1,416 +1,398 @@
-#  Library Book Issue & Return Service
+Your `README.md` preview looks messy right now because it's missing standard Markdown formatting syntax. Without things like bullet points (`-`), table separators (`|---|`), and code block backticks (```), GitHub doesn't know how to format your text and just lumps it all together into unreadable paragraphs.
 
-A RESTful backend application built using Java Spring Boot and MySQL to manage library operations such as:
+I've fixed all the formatting errors, added proper code blocks, fixed your tables, and included a few visual elements (like emojis and horizontal lines) to make it look incredibly clean, professional, and easy to read.
 
-  Book Management
-  Member Registration
-  Book Issue & Return
-  Availability Tracking
-  Business Rule Validation
+Copy the code block below and paste it directly into your `README.md` file on GitHub:
 
-   
+```markdown
+# 📚 Library Book Issue & Return Service
 
-#  Objective
+> A RESTful backend application built using Java Spring Boot and MySQL to manage library operations.
 
-The objective of this project is to automate the book issuing process of a college library using REST APIs.
+### Key Operations:
+- Book Management
+- Member Registration
+- Book Issue & Return
+- Availability Tracking
+- Business Rule Validation
 
-The system allows librarians to manage books and members while enforcing library rules such as:
+---
 
-  A book can only be issued to one member at a time
-  A member can issue a maximum of 3 books
+## 🎯 Objective
+The objective of this project is to automate the book issuing process of a college library using REST APIs. The system allows librarians to manage books and members while enforcing library rules such as:
+- A book can only be issued to one member at a time.
+- A member can issue a maximum of **3** books.
 
-   
+---
 
-#  Features
+## ✨ Features
 
-##  Book Management
-  Add a new book
-  View all books
-  View available books
-  Search books by title
-  Search books by author
+### Book Management
+- Add a new book
+- View all books
+- View available books
+- Search books by title
+- Search books by author
 
-##  Member Management
-  Register a member
-  View member details
-  View books issued to a member
+### Member Management
+- Register a member
+- View member details
+- View books issued to a member
 
-##  Issue & Return Management
-  Issue books to members
-  Return issued books
-  Automatically update availability status
-  Store issue and return dates
+### Issue & Return Management
+- Issue books to members
+- Return issued books
+- Automatically update availability status
+- Store issue and return dates
 
-   
+---
 
-#  Tech Stack
+## 💻 Tech Stack
 
 | Technology | Purpose |
+|------------|---------|
+| **Java 17** | Programming Language |
+| **Spring Boot** | Backend Framework |
+| **Spring Data JPA** | ORM |
+| **Hibernate** | Database Mapping |
+| **MySQL** | Database |
+| **Maven** | Dependency Management |
+| **Postman** | API Testing |
 
-| Java 17 | Programming Language |
-| Spring Boot | Backend Framework |
-| Spring Data JPA | ORM |
-| Hibernate | Database Mapping |
-| MySQL | Database |
-| Maven | Dependency Management |
-| Postman | API Testing |
+---
 
-   
+## 📂 Project Structure
 
-#  Project Structure
-
-   bash
-library management system/
+```bash
+library-management-system/
 │
 ├── src/main/java/com/library/
-│
-├── controller/
-│   ├── BookController.java
-│   ├── MemberController.java
-│   └── IssueController.java
-│
-├── service/
-│   ├── BookService.java
-│   ├── MemberService.java
-│   └── IssueService.java
-│
-├── repository/
-│   ├── BookRepository.java
-│   ├── MemberRepository.java
-│   └── IssueRepository.java
-│
-├── entity/
-│   ├── Book.java
-│   ├── Member.java
-│   └── IssueRecord.java
-│
-├── exception/
-│   ├── ResourceNotFoundException.java
-│   └── GlobalExceptionHandler.java
-│
-└── LibraryManagementApplication.java
+│   ├── controller/
+│   │   ├── BookController.java
+│   │   ├── MemberController.java
+│   │   └── IssueController.java
+│   │
+│   ├── service/
+│   │   ├── BookService.java
+│   │   ├── MemberService.java
+│   │   └── IssueService.java
+│   │
+│   ├── repository/
+│   │   ├── BookRepository.java
+│   │   ├── MemberRepository.java
+│   │   └── IssueRepository.java
+│   │
+│   ├── entity/
+│   │   ├── Book.java
+│   │   ├── Member.java
+│   │   └── IssueRecord.java
+│   │
+│   ├── exception/
+│   │   ├── ResourceNotFoundException.java
+│   │   └── GlobalExceptionHandler.java
+│   │
+│   └── LibraryManagementApplication.java
 
+```
 
-   
+---
 
-#  Database Design
+## 🗄️ Database Design
 
-## Book Entity
-
-| Field | Type |
-
-| bookId | Long |
-| title | String |
-| author | String |
-| available | Boolean |
-
-   
-
-##  Member Entity
+### Book Entity
 
 | Field | Type |
+| --- | --- |
+| `bookId` | Long |
+| `title` | String |
+| `author` | String |
+| `available` | Boolean |
 
-| memberId | Long |
-| name | String |
-| email | String |
-
-   
-
-##  IssueRecord Entity
+### Member Entity
 
 | Field | Type |
+| --- | --- |
+| `memberId` | Long |
+| `name` | String |
+| `email` | String |
 
-| issueId | Long |
-| issueDate | LocalDate |
-| returnDate | LocalDate |
-| book | Book |
-| member | Member |
+### IssueRecord Entity
 
-   
+| Field | Type |
+| --- | --- |
+| `issueId` | Long |
+| `issueDate` | LocalDate |
+| `returnDate` | LocalDate |
+| `book` | Book |
+| `member` | Member |
 
-#  REST API Endpoints
+---
 
-#  Book APIs
+## 🔌 REST API Endpoints
 
-##  Add Book
+### 📖 Book APIs
 
-   http
+**Add Book**
+
+```http
 POST /books
-   
 
-### Request Body
+```
 
-    json
+*Request Body:*
+
+```json
 {
   "title": "Clean Code",
   "author": "Robert C. Martin"
 }
-      
 
-   
+```
 
-##  Get All Books
+**Get All Books**
 
-      http
+```http
 GET /books
-      
 
-   
+```
 
-##  Get Available Books
+**Get Available Books**
 
-      http
+```http
 GET /books/available
-      
 
-   
+```
 
-##  Search Books
+**Search Books**
+*By Title:*
 
-### By Title
-
-      http
+```http
 GET /books/search/title?title=Clean
-      
 
-### By Author
+```
 
-      http
+*By Author:*
+
+```http
 GET /books/search/author?author=Martin
-      
 
-   
+```
 
-#  Member APIs
+### 👥 Member APIs
 
-##  Register Member
+**Register Member**
 
-      http
+```http
 POST /members
-      
 
-### Request Body
+```
 
-      json
+*Request Body:*
+
+```json
 {
   "name": "Sneha",
   "email": "sneha@gmail.com"
 }
-      
 
-   
+```
 
-##  Get Member Details
+**Get Member Details**
 
-      http
+```http
 GET /members/{memberId}
-      
 
-   
+```
 
-##  Get Books Issued to Member
+**Get Books Issued to Member**
 
-   http
+```http
 GET /members/{memberId}/books
-   
 
-   
+```
 
-# Issue APIs
+### 🔄 Issue APIs
 
-##  Issue a Book
+**Issue a Book**
 
-   http
+```http
 POST /issues/issue
-   
 
-### Request Body
+```
 
-   json
+*Request Body:*
+
+```json
 {
   "bookId": 1,
   "memberId": 2
 }
-   
 
-### Business Validations
-  Book must exist
-  Member must exist
-  Book must be available
-  Member should have fewer than 3 active book issues
+```
 
-   
+*Business Validations:*
 
-##  Return a Book
+* Book must exist
+* Member must exist
+* Book must be available
+* Member should have fewer than 3 active book issues
 
-   http
+**Return a Book**
+
+```http
 PUT /issues/return/{issueId}
-   
 
-### Functionality
-  Updates return date
-  Marks book as available
+```
 
-   
+*Functionality:*
 
-#  Business Rules
+* Updates return date
+* Marks book as available
 
-  One book can only be issued to one member at a time
-  A member can issue a maximum of 3 books
-  A book must be available before issuing
-  Returning a book updates its availability
+---
 
-   
+## ⚖️ Business Rules
 
-#  Exception Handling
+* One book can only be issued to one member at a time.
+* A member can issue a maximum of 3 books.
+* A book must be available before issuing.
+* Returning a book updates its availability.
+
+---
+
+## Exception Handling
 
 Centralized exception handling is implemented using:
 
-   java
+```java
 @RestControllerAdvice
-   
 
-Handled Exceptions:
-  Book not found
-  Member not found
-  Book unavailable
-  Maximum issue limit exceeded
-  Invalid request data
+```
 
-   
+**Handled Exceptions:**
 
-#  How to Run the Project
+* Book not found
+* Member not found
+* Book unavailable
+* Maximum issue limit exceeded
+* Invalid request data
 
-##  Clone the Repository
+---
 
- bash
-git clone https://github.com/your username/library management system.git
-   
+## How to Run the Project
 
-   
+### 1. Clone the Repository
 
-##  Open the Project
+```bash
+git clone https://github.com/Ashishvatsav/Libtrack.git
 
-Open the project using:
-  IntelliJ IDEA
-  VS Code
-  Eclipse
+```
 
-   
+### 2. Open the Project
 
-##  Configure MySQL Database
+Open the project using your preferred IDE (IntelliJ IDEA, VS Code, or Eclipse).
+
+### 3. Configure MySQL Database
 
 Create a database in MySQL:
 
-   sql
+```sql
 CREATE DATABASE librarydb;
-   
 
-Add the following in  application.properties 
+```
 
-   properties
+Add the following in your `application.properties` file:
+
+```properties
 spring.datasource.url=jdbc:mysql://localhost:3306/librarydb
 spring.datasource.username=root
 spring.datasource.password=yourpassword
 
-spring.jpa.hibernate.ddl auto=update
-spring.jpa.show sql=true
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
 spring.jpa.properties.hibernate.format_sql=true
 
-spring.datasource.driver class name=com.mysql.cj.jdbc.Driver
-spring.jpa.database platform=org.hibernate.dialect.MySQL8Dialect
-   
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.jpa.database-platform=org.hibernate.dialect.MySQL8Dialect
 
-   
+```
 
-##  Run the Application
+### 4. Run the Application
 
 Using Maven:
 
-   bash
-mvn spring boot:run
-   
+```bash
+mvn spring-boot:run
 
-Application runs at:
+```
 
-   http
-http://localhost:8080
-   
+The application will run at: `http://localhost:8080`
 
-   
+---
 
-#  API Testing
+## API Testing
 
-You can test the APIs using:
-  Postman
-  Swagger UI
-  Thunder Client
+You can test the APIs using **Postman**, **Swagger UI**, or **Thunder Client**.
 
-   
+### Sample Postman Requests
 
-#  Sample Postman Requests
+**Add Book:**
 
-## Add Book
-
-   json
+```json
 {
   "title": "Spring Boot in Action",
   "author": "Craig Walls"
 }
-   
 
-   
+```
 
-## Register Member
+**Register Member:**
 
-   json
+```json
 {
   "name": "John Doe",
   "email": "john@gmail.com"
 }
-   
 
-   
+```
 
-## Issue Book
+**Issue Book:**
 
-   json
+```json
 {
   "bookId": 1,
   "memberId": 1
 }
-   
 
+```
 
-#  Future Enhancements
+---
 
-  JWT Authentication
-  Role Based Access Control
-  Fine Calculation System
-  Due Date Notifications
-  Swagger API Documentation
-  Docker Deployment
-  Unit Testing using JUnit & Mockito
+## Future Enhancements
 
+* [ ] JWT Authentication
+* [ ] Role-Based Access Control
+* [ ] Fine Calculation System
+* [ ] Due Date Notifications
+* [ ] Swagger API Documentation
+* [ ] Docker Deployment
+* [ ] Unit Testing using JUnit & Mockito
 
+---
 
-#  Hackathon Deliverables
+## Hackathon Deliverables
 
-✅ Working REST APIs  
-✅ Business Rule Validations  
-✅ Exception Handling  
-✅ Database Integration  
-✅ Postman API Testing  
-✅ Clean Layered Architecture  
+*  Working REST APIs
+*  Business Rule Validations
+*  Exception Handling
+*  Database Integration
+*  Postman API Testing
+*  Clean Layered Architecture
 
-
-
-#  Author
-
-Developed as part of a Spring Boot REST API Hackathon Project.
-
-
-
-#  License
+## 📜 License
 
 This project is intended for educational and hackathon purposes.
+
+```
+
+```
