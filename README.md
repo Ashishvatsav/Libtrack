@@ -1,8 +1,3 @@
-Your `README.md` preview looks messy right now because it's missing standard Markdown formatting syntax. Without things like bullet points (`-`), table separators (`|---|`), and code block backticks (```), GitHub doesn't know how to format your text and just lumps it all together into unreadable paragraphs.
-
-I've fixed all the formatting errors, added proper code blocks, fixed your tables, and included a few visual elements (like emojis and horizontal lines) to make it look incredibly clean, professional, and easy to read.
-
-Copy the code block below and paste it directly into your `README.md` file on GitHub:
 
 ```markdown
 # 📚 Library Book Issue & Return Service
