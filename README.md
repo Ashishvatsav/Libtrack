@@ -387,7 +387,3 @@ You can test the APIs using **Postman**, **Swagger UI**, or **Thunder Client**.
 ## 📜 License
 
 This project is intended for educational and hackathon purposes.
-
-```
-
-```
